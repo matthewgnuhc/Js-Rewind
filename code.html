@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>REWIND: A Coding Challenge By Matthew Chung</title>
+    <title>THE REWIND: A Coding Challenge By Matthew Chung</title>
     <!--Required Meta Tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,16 +13,16 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="css/site.css">
-    <link rel="icon" type="image/png" href="img/Favicon2/favicon.ico">
+    <link rel="icon" type="image/png" href="img/android-chrome-512x512.png">
     <link href="css/prism.css" rel="stylesheet" />
 </head>
 
 <body class="d-flex flex-column h-100">
     <!--Nav Section-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top g-4">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="img/Favicon2/android-chrome-512x512.png" width="30"
-                    height="30" class="d-inline-block align-text-top">REWIND</a>
+            <a class="navbar-brand" href="index.html"><img src="img/android-chrome-512x512.png" width="40"
+                    height="40" class="d-inline-block align-text-top"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,22 +55,48 @@
             <div class="row">
                 <div class="col-lg-8 col-sm-12">
                     <pre class="line-numbers"><code class="language-javascript">
-                       // Displays a message to the user
-                       function displayMessage() {
-                       // Declare our variable
-                       let msg = "";
-                       // Pull the value from the input box
-                       msg = document.getElementById("message").value;
-                       // Alert the user
-                       alert(msg);
-                       }
+                      //Get starting values from the screen
+                      //Controller Function
+                      function getString() {
+                      //Get the user's input
+                      let userString = document.getElementById("userString").value;
+                      //Version 2 --Test the user's input for length
 
-                       //Displays a message to the user with Sweet Alert 2
-                       function displayMessage2() {
-                       let msg = "";
-                       msg = document.getElementById("message").value;
-                       Swal.fire(msg);
-                       }
+                      //Reverse the user's input - this is a seperate function
+                      let revString = reverseString(userString);
+
+                      //Display the result - this is a seperate function
+                      displayString(revString)
+                      }
+
+                      function reverseString(userString) {
+                      let startValue = userString.length - 1;
+                      let endValue = 0;
+
+                      let revString = "";
+
+                      //User input = Frank
+                      //Frank is a string AND an array of characters
+                      //[F, r, a, n, k]
+                      //In a decremented for loop the startValue must be higher than the endValue.
+                      for (let i = startValue; i >= endValue; i--){
+                      revString += userString[i];
+                      }
+
+                      //loop 1 -"k"
+                      //loop 2 - "kn"
+                      //loop 3 - "kna"
+                      //loop 4 - "knar"
+                      //loop 5 - "knarF"
+                      return revString;
+
+                      }
+
+                      function displayString(revString) {
+                      let output = document.getElementById("results");
+
+                      output.innerHTML = revString;
+                      }
                     </code></pre>
                 </div>
                 <div class="col-lg-4 col-sm-12">
